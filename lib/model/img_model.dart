@@ -70,6 +70,10 @@ class Photo {
   int? heightM;
   int? widthM;
   String? url;
+  late String remark;
+  late String name;
+  late double rating;
+
   Photo(
       {this.id,
       this.owner,
@@ -82,7 +86,10 @@ class Photo {
       this.isfamily,
       required this.urlM,
       this.heightM,
-      this.widthM});
+      this.widthM,
+      this.remark = " ",
+      this.rating = 1.0,
+      this.name = " "});
 
   Photo.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -94,10 +101,13 @@ class Photo {
     ispublic = json['ispublic'];
     isfriend = json['isfriend'];
     isfamily = json['isfamily'];
-    urlM = json['url_m'];
+    urlM = json['url_m'] ?? "";
     heightM = json['height_m'];
     widthM = json['width_m'];
     url = '${Constant.imgBaseUrl}/$server/$id\_$secret.jpg';
+    remark = " ";
+    name = " ";
+    rating = 1.0;
   }
 
   Map<String, dynamic> toJson() {
