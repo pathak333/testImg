@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               )));
                                   print(backdata);
                                   setState(() {
-                                    data[i].remark = backdata["remark"];
+                                    data[i].remark = backdata["remark"] ?? "";
                                     data[i].name = backdata["fullName"];
                                     data[i].rating = backdata["rating"];
                                   });
